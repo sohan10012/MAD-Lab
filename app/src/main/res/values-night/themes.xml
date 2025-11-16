@@ -1,0 +1,43 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 🌑 TRUE AMOLED DARK THEME -->
+    <style name="Base.Theme.PassApp" parent="Theme.Material3.Dark.NoActionBar">
+
+        <!-- Pure black for AMOLED -->
+        <item name="android:colorBackground">#000000</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#000000</item>
+
+        <!-- Material 3 Dark Colors -->
+        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
+        <item name="colorSurface">@color/md_theme_dark_surface</item>
+        <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
+
+        <!-- Prevent Android auto-forcing grey dark theme -->
+        <item name="android:forceDarkAllowed">false</item>
+
+        <!-- Smooth fade animations -->
+        <item name="android:windowAnimationStyle">@style/App.Animation</item>
+
+    </style>
+
+    <style name="Theme.PassApp" parent="Base.Theme.PassApp" />
+
+    <!-- ⭐ GLASS CARD STYLE (Dark mode) -->
+    <style name="GlassCard">
+        <item name="android:background">#11FFFFFF</item>  <!-- ultra-soft white glass layer -->
+        <item name="android:padding">16dp</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:foreground">@drawable/ripple_effect</item>
+    </style>
+
+    <!-- ⭐ Reuse the same animation as light -->
+    <style name="App.Animation">
+        <item name="android:activityOpenEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@android:anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+</resources>

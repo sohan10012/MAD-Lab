@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#FAFBFC">
+
+    <!-- Logo/Icon Section -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="#E3F2FD"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="🔐"
+            android:textSize="40sp"
+            android:gravity="center" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Header Section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Secure Access"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#2C3E50"
+        android:letterSpacing="0.01"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter your PIN to continue"
+        android:textSize="14sp"
+        android:textColor="#7F8C8D"
+        android:letterSpacing="0.02"
+        android:layout_marginBottom="32dp" />
+
+    <!-- PIN Input Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:strokeColor="#E8EBF0"
+        app:strokeWidth="1dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:contentPadding="24dp"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PIN"
+                android:textSize="12sp"
+                android:textColor="#5A6C7D"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="12dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter 4-digit PIN"
+                app:hintTextColor="#95A5A6"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="#F8F9FA"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxStrokeColor="#D1D8E0"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+                app:startIconTint="#3498DB"
+                app:endIconMode="password_toggle"
+                app:endIconTint="#95A5A6">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pinInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#2C3E50"
+                    android:letterSpacing="0.3"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Unlock Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSavePin"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Unlock"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:letterSpacing="0.02"
+        app:cornerRadius="12dp"
+        android:backgroundTint="#3498DB"
+        android:textColor="#FFFFFF"
+        app:elevation="0dp"
+        app:icon="@android:drawable/ic_lock_lock"
+        app:iconTint="#FFFFFF"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Divider -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="#E8EBF0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OR"
+            android:textSize="12sp"
+            android:textColor="#95A5A6"
+            android:letterSpacing="0.1"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="#E8EBF0" />
+
+    </LinearLayout>
+
+    <!-- Fingerprint Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFingerprint"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Use Fingerprint"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:letterSpacing="0.02"
+        app:cornerRadius="12dp"
+        app:strokeColor="#9B59B6"
+        app:strokeWidth="1.5dp"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:textColor="#9B59B6"
+        app:icon="@android:drawable/ic_menu_preferences"
+        app:iconTint="#9B59B6"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Security Note -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🛡️"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your data is protected with encryption"
+            android:textSize="12sp"
+            android:textColor="#7F8C8D"
+            android:letterSpacing="0.01" />
+
+    </LinearLayout>
+
+</LinearLayout>

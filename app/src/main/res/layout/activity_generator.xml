@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFBFC"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Header Section -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Password Generator"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#2C3E50"
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create a strong and secure password"
+                android:textSize="14sp"
+                android:textColor="#7F8C8D"
+                android:letterSpacing="0.02" />
+
+        </LinearLayout>
+
+        <!-- Generated Password Display Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E8EBF0"
+            app:strokeWidth="1dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:contentPadding="20dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Generated Password"
+                    android:textSize="12sp"
+                    android:textColor="#5A6C7D"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05"
+                    android:layout_marginBottom="10dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Your password will appear here"
+                    app:hintTextColor="#95A5A6"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="#F8F9FA"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxStrokeColor="#D1D8E0"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+                    app:startIconTint="#27AE60"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="#95A5A6">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOutput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="#2C3E50"
+                        android:fontFamily="monospace"
+                        android:inputType="textPassword"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Settings Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E8EBF0"
+            app:strokeWidth="1dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:contentPadding="20dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Customization"
+                    android:textSize="12sp"
+                    android:textColor="#5A6C7D"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Length Slider Section -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Password Length"
+                        android:textSize="14sp"
+                        android:textColor="#2C3E50"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="#E3F2FD"
+                        app:contentPadding="8dp">
+
+                        <TextView
+                            android:id="@+id/txtLength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#3498DB"
+                            android:minWidth="32dp"
+                            android:gravity="center" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekLength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="32"
+                    android:min="4"
+                    android:progress="12"
+                    android:progressTint="#3498DB"
+                    android:thumbTint="#3498DB"
+                    android:layout_marginBottom="20dp" />
+
+                <!-- Character Options -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Include Characters"
+                    android:textSize="14sp"
+                    android:textColor="#2C3E50"
+                    android:layout_marginBottom="12dp" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/checkUpper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Uppercase Letters (A-Z)"
+                    android:textSize="14sp"
+                    android:textColor="#2C3E50"
+                    android:checked="true"
+                    android:buttonTint="#3498DB"
+                    android:paddingStart="4dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/checkNumbers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Numbers (0-9)"
+                    android:textSize="14sp"
+                    android:textColor="#2C3E50"
+                    android:checked="true"
+                    android:buttonTint="#3498DB"
+                    android:paddingStart="4dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/checkSymbols"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Symbols (!@#$%^*)"
+                    android:textSize="14sp"
+                    android:textColor="#2C3E50"
+                    android:checked="true"
+                    android:buttonTint="#3498DB"
+                    android:paddingStart="4dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Generate Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGenerate"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Generate Password"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:letterSpacing="0.02"
+            app:cornerRadius="12dp"
+            app:strokeColor="#27AE60"
+            app:strokeWidth="1.5dp"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:textColor="#27AE60"
+            app:icon="@android:drawable/ic_menu_rotate"
+            app:iconTint="#27AE60"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Use Password Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUse"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Use This Password"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:letterSpacing="0.02"
+            app:cornerRadius="12dp"
+            android:backgroundTint="#3498DB"
+            android:textColor="#FFFFFF"
+            app:elevation="0dp"
+            app:icon="@android:drawable/ic_menu_save"
+            app:iconTint="#FFFFFF"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp" />
+
+        <!-- Security Tip -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="#FFF9E6">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💡"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="For maximum security, use at least 16 characters with all character types enabled"
+                    android:textSize="12sp"
+                    android:textColor="#5A6C7D"
+                    android:lineSpacingExtra="3dp"
+                    android:letterSpacing="0.01" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>
