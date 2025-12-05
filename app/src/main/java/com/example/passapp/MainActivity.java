@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     PasswordStore store;
     PasswordAdapter adapter;
 
-    List<PasswordItem> allItems = new ArrayList<>();
-    List<PasswordItem> filteredItems = new ArrayList<>();
+    // SINGLE LIST (Fix for your issue)
+    List<PasswordItem> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
         passwordList.setLayoutManager(new LinearLayoutManager(this));
 
-        loadPasswords();
+        loadPasswords(); // load first time
 
-        // ➕ FAB → Add new password
         btnAdd.setOnClickListener(v ->
                 startActivity(new Intent(MainActivity.this, AddPasswordActivity.class))
         );
 
-        // 🔍 Search filter
+        // SEARCH BAR
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override public void afterTextChanged(Editable s) {}
@@ -62,28 +61,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadPasswords();  // refresh when user returns from add/edit screen
+        loadPasswords();   // refresh list after adding a new password
     }
 
     private void loadPasswords() {
-        allItems = store.getAll();
-        filteredItems = new ArrayList<>(allItems);
+        items.clear();
+        items.addAll(store.getAll());
 
-        adapter = new PasswordAdapter(this, filteredItems);
+        adapter = new PasswordAdapter(this, items);
         passwordList.setAdapter(adapter);
     }
 
     private void filterList(String query) {
-        filteredItems.clear();
+        List<PasswordItem> filtered = new ArrayList<>();
 
-        for (PasswordItem item : allItems) {
+        for (PasswordItem item : items) {
             if (item.getApp().toLowerCase().contains(query.toLowerCase()) ||
                     item.getUsername().toLowerCase().contains(query.toLowerCase())) {
 
-                filteredItems.add(item);
+                filtered.add(item);
             }
         }
 
-        adapter.notifyDataSetChanged();
+        adapter = new PasswordAdapter(this, filtered);
+        passwordList.setAdapter(adapter);
     }
 }

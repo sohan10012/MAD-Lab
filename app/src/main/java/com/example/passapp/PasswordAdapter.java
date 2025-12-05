@@ -48,11 +48,15 @@ public class PasswordAdapter extends RecyclerView.Adapter<PasswordAdapter.ViewHo
             ClipboardManager clipboard =
                     (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
 
-            ClipData clip = ClipData.newPlainText("password", item.getPassword());
+            String textToCopy = "Username : " + item.getUsername() + "\n"
+                    + "Password : " + item.getPassword();
+
+            ClipData clip = ClipData.newPlainText("credentials", textToCopy);
             clipboard.setPrimaryClip(clip);
 
-            Toast.makeText(context, "Password Copied!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Copied Username & Password!", Toast.LENGTH_SHORT).show();
         });
+
 
         // DELETE button
         holder.btnDelete.setOnClickListener(v -> {
